@@ -7,6 +7,8 @@ import Player from '../Components/Player/Player';
 import checkSlots from '../utils/checkSlots';
 import { AppContext } from '../context/AppContext';
 
+export const ANIMATION_DURATION = 1000
+
 const init = initialState => ({
   slots: Array(9)
     .fill(0)
@@ -62,8 +64,10 @@ const Game = ({ navigation, initialState }) => {
     const slots = state[`player${player}`];
     if (slots.length >= 3) {
       if (checkSlots(slots)) {
-        setWinner(player);
-        setPlayerWins(player);
+        setTimeout(()=>{
+          setWinner(player);
+          setPlayerWins(player);
+        }, ANIMATION_DURATION)
       }
     }
 
