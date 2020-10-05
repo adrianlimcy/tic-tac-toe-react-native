@@ -14,3 +14,9 @@
 3.  Solution:
     -  Add code into Filled.js within React.useEffect()
     -  useNativeDriver: true,
+
+# Advanced Animation
+1.  expo install lottie-react-native
+2.  npm audit fix
+3.  mkdir Components/Winner
+4.  touch Components/Winner/Winner.js
