@@ -7,8 +7,6 @@ import Player from '../Components/Player/Player';
 import checkSlots from '../utils/checkSlots';
 import { AppContext } from '../context/AppContext';
 
-export const ANIMATION_DURATION = 1000
-
 const init = initialState => ({
   slots: Array(9)
     .fill(0)

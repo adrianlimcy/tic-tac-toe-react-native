@@ -1,31 +1,32 @@
 import React from 'react'
 import { Animated, Easing } from 'react-native'
-import { ANIMATION_DURATION } from '../../Screens/Game'
+import { ANIMATION_DURATION } from '../../utils/contants'
 
-const Filled = ({ filled }) => {
+const Filled = ({ filled, start }) => {
     const [opacityValue] = React.useState(new Animated.Value(0))
-    const [scaleValue] = React.useState(new Animated.Value(0))
+    const [scaleValue] = React.useState(new Animated.Value(0.8))
 
     React.useEffect(()=>{
-        filled && Animated.parallel([
-            Animated.timing(
-                opacityValue,
-                {
-                    toValue: 1,
-                    duration: ANIMATION_DURATION,
-                    easing: Easing.linear(),
-                    useNativeDriver: true,
-                }
-            ),
-            Animated.spring(
-                scaleValue,
-                {
-                    toValue: 1,
-                    easing: Easing.cubic(),
-                    useNativeDriver: true,
-                }
-            )
-        ]).start()
+        start && Animated.timing(
+            opacityValue,
+            {
+                toValue: 1,
+                duration: ANIMATION_DURATION,
+                easing: Easing.linear(),
+                useNativeDriver: true
+            }
+        ).start()
+    }, [start])
+
+    React.useEffect(()=>{
+        filled && Animated.spring(
+            scaleValue,
+            {
+                toValue: 1,
+                easing: Easing.cubic(),
+                useNativeDriver: true,
+            }
+        ).start()
     }, [filled])
 
     return (
