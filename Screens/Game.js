@@ -6,6 +6,7 @@ import Actions from '../Components/Actions/Actions';
 import Player from '../Components/Player/Player';
 import checkSlots from '../utils/checkSlots';
 import { AppContext } from '../context/AppContext';
+import { ANIMATION_DURATION } from '../utils/contants'
 
 const init = initialState => ({
   slots: Array(9)
